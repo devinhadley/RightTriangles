@@ -45,25 +45,24 @@ class RightTriangle():
         print("Side B: "+str(self.b))
         print("Side C/Hypotenuese: "+str(self.c))
 
-    def func(self,function, angle):
+    def cos(self, angle):
         if angle == 'a' or angle == 'A':
             active_angle = radians(self.angle_a)
         else:
             active_angle = radians(self.angle_b)
+        return cos(active_angle)
 
-        if function == 'tan':
-            return tan(active_angle)
-        elif function == 'sin':
-            return sin(active_angle)
-        elif function == 'cos':
-            return cos(active_angle)
+    def sin(self, angle):
+        if angle == 'a' or angle == 'A':
+            active_angle = radians(self.angle_a)
+        else:
+            active_angle = radians(self.angle_b)
+        return sin(active_angle)
 
+    def tan(self, angle):
+        if angle == 'a' or angle == 'A':
+            active_angle = radians(self.angle_a)
+        else:
+            active_angle = radians(self.angle_b)
+        return tan(active_angle)
 
-            
-
-test = RightTriangle(a=1.732050, c=3)
-
-test.printAngles()
-test.printSides()
-print(test.func('sin', 'a'))
-test.showShape(100)
