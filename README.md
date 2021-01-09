@@ -16,7 +16,6 @@ Python library for right triangles.
 
 <ul>
   
-Adding support for trigonomic functions.
-   
+   Adding support for inverse trig functions and special identities.
   
 </ul>

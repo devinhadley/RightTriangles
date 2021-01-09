@@ -1,27 +1,6 @@
 import turtle
-
-from math import sqrt, atan, degrees
-
-def pythag(formula,side_a=None, side_b=None, side_c=None):
-	if formula == 'c':
-		side_c = sqrt(side_a * side_a + side_b * side_b)
-		
-		return(int(side_c))
-
-	elif formula == 'a':
-		side_a = sqrt((side_c * side_c) - (side_b * side_b))
-		
-		return(int(side_a))
-
-	elif formula == 'b':
-		side_c = sqrt(side_c * side_c - side_a * side_a)
-		
-		return(int(side_c))
-
-	else:
-		print('Please select a side between a, b, c')
-
-
+from formulas import pythag
+from math import sqrt, atan, degrees, radians, tan, sin, cos
 
 
 class RightTriangle():
@@ -39,34 +18,52 @@ class RightTriangle():
         elif self.c == None:
             self.c = pythag('c', side_a=self.a, side_b=self.b)
 
-        self.angle_1 = degrees(atan(self.a/self.b))
-        self.angle_2 = degrees(atan(self.b/self.a))
+        self.angle_a= degrees(atan(self.a/self.b))
+        self.angle_b = degrees(atan(self.b/self.a))
  
 
 
     def printAngles(self):
-        print(self.angle_1, self.angle_2)
+        print("Angle A: "+str(self.angle_a))
+        print("Angle B: "+str(self.angle_b))
 
 
-    def showShape(self):
+    def showShape(self, multiplier=10):
         board = turtle.Turtle()
          
-        board.forward(self.b * 10) # draw base
+        board.forward(self.b * multiplier) # draw base
           
         board.left(90)
-        board.forward(self.a * 10)
+        board.forward(self.a * multiplier)
            
         board.left(180 - degrees(atan(self.b/self.a)))
-        board.forward(self.c * 10)
+        board.forward(self.c * multiplier)
         turtle.done()
 
     def printSides(self):
-        print(self.a)
-        print(self.b)
-        print(self.c)
+        print("Side A: "+str(self.a))
+        print("Side B: "+str(self.b))
+        print("Side C/Hypotenuese: "+str(self.c))
 
-test = RightTriangle(b=4,c=5)
+    def func(self,function, angle):
+        if angle == 'a' or angle == 'A':
+            active_angle = radians(self.angle_a)
+        else:
+            active_angle = radians(self.angle_b)
+
+        if function == 'tan':
+            return tan(active_angle)
+        elif function == 'sin':
+            return sin(active_angle)
+        elif function == 'cos':
+            return cos(active_angle)
+
+
+            
+
+test = RightTriangle(a=1.732050, c=3)
 
 test.printAngles()
 test.printSides()
-test.showShape()
+print(test.func('sin', 'a'))
+test.showShape(100)
