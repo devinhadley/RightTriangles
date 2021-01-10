@@ -9,6 +9,7 @@ Python library for right triangles.
    <li>Print/access interior angles.</li>
    <li>Display the shape of the triangle (need tkinter).</li>
    <li>Print/access all side lengths.</li>
+  <li>Calculate trig functions</li>
   </ul>
 <hr>
 <h3>How to use</h3>
