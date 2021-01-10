@@ -13,13 +13,21 @@ class RightTriangle():
         self.a = a
         self.b = b
         self.c = c
+
+  
         
 
         if self.a == None:
-           self.a = pythag('a',side_b=self.b, side_c=self.c)
+            if self.b == None or self.c == None:
+                raise Exception("Please define at least two side lengths.")
+            self.a = pythag('a',side_b=self.b, side_c=self.c)
         elif self.b == None:
+            if self.a == None or self.c == None:
+                raise Exception("Please define at least two side lengths.")
             self.b =  pythag('b',side_a=self.a,side_c=self.c)
         elif self.c == None:
+            if self.b == None or self.a == None:
+                raise Exception("Please define at least two side lengths.")
             self.c = pythag('c', side_a=self.a, side_b=self.b)
 
         self.angle_a= degrees(atan(self.a/self.b))
