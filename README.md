@@ -1,7 +1,7 @@
 # RightTriangles
 Python library for right triangles.
 
-<hr>
+
 <h3>Current features</h3>
 
   <ul>
