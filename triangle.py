@@ -1,5 +1,5 @@
 import turtle
-from formulas import pythag
+from formulas import find_a, find_b, find_c
 from math import atan, degrees, radians, tan, sin, cos
 
 
@@ -17,15 +17,15 @@ class RightTriangle():
         if self.a is None:
             if self.b is None or self.c is None:
                 raise Exception("Please define at least two side lengths.")
-            self.a = pythag('a', side_b=self.b, side_c=self.c)
+            self.a = find_a(side_b=self.b, side_c=self.c)
         elif self.b is None:
             if self.a is None or self.c is None:
                 raise Exception("Please define at least two side lengths.")
-            self.b = pythag('b', side_a=self.a, side_c=self.c)
+            self.b = find_b(side_a=self.a, side_c=self.c)
         elif self.c is None:
             if self.b is None or self.a is None:
                 raise Exception("Please define at least two side lengths.")
-            self.c = pythag('c', side_a=self.a, side_b=self.b)
+            self.c = find_c(side_a=self.a, side_b=self.b)
 
         self.angle_a = degrees(atan(self.a / self.b))
         self.angle_b = degrees(atan(self.b / self.a))
